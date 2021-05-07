@@ -1,0 +1,34 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+  
+.nav, .nav a {
+    color: white;
+    background-color: #424242;
+    text-decoration: none;
+}
+  
+.nav a:hover {
+    background-color: #616161;
+}
+
+.nav > *, .nav > *>*{
+    display: inline-block;
+}
+  
+.nav a, .nav span {
+    padding: 15px;
+}
+
+.nav button {
+    cursor: pointer;
+	border-radius: 50%;
+	border: 2px solid #ac0600;
+	background-color: #eb0c0c;
+}
+
+.nav-footer {
+    float: right;
+}
+  
