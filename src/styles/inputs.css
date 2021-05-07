@@ -1,0 +1,33 @@
+.text-input {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    padding: 2px;
+    margin: 5px 0 5px;
+    border-radius: 5px;
+    background-color: #CFD8DC;
+    box-sizing: border-box;    
+}
+  
+.text-input > * {
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+  
+.icon-input {
+    flex: 1;
+    width: 50px;
+}
+  
+.text-input input {
+    flex: 2;
+    display: inline-block;
+    margin: 0;
+    border: none;
+}
+  
+.text-input input:active, .text-input input:enabled {
+    border: none;
+    outline: none;
+}

@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wi-yu</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Wi-yu</title>
 
-    <!-- Cargar React. -->
-    <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+		<!-- Cargar React. -->
+		<!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
+		<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    <!-- Cargamos nuestro componente de React. -->
-    <script src="src/componets/Frames.js"></script>
-</head>
+		<!-- React Comopnets -->
+		<script src="src/componets/Modal.js" type="text/babel"></script>
 
-<body id="root">
-    
-</body>
+		<!-- React pages -->
+		<script src="src/pages/Sumary.js" type="text/babel"></script>
 
+		<!-- css Styles  -->
+		<link rel="stylesheet" href="src/styles/inputs.css" />
+		<link rel="stylesheet" href="src/styles/modal.css" />
+		<link rel="stylesheet" href="src/styles/cards.css" />
+
+		<script src="https://d3js.org/d3.v6.min.js"></script>
+	</head>
+
+	<body>
+		<div id="root"></div>
+	</body>
 </html>

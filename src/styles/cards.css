@@ -1,0 +1,8 @@
+.list-item {
+    border: 2px solid #F06292;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0px 10px 0px;
+    -webkit-box-shadow: 4px 4px 15px -6px #000000; 
+    box-shadow: 4px 4px 15px -6px #000000;
+}

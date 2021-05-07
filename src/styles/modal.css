@@ -1,0 +1,46 @@
+.modal {
+	/* Tamaño por defecto*/
+	width: 400px;
+	/* Tamños relativos */
+	max-width: 500px;
+	/* Centar */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* Styles */
+	border-radius: 5px;
+	border: 2px solid #1e88e5;
+	background-color: #90caf9;
+	/* Sombras */
+	-webkit-box-shadow: 1px 7px 13px -2px #000000;
+	box-shadow: 1px 7px 13px -2px #000000;
+}
+
+.modal-head {
+	color: #0d47a1;
+	padding: 5px;
+	height: 20px;
+}
+
+.modal-head button {
+	float: right;
+	cursor: pointer;
+	border-radius: 50%;
+	border: 2px solid #1e88e5;
+	background-color: #2196f3;
+}
+.modal-head button:active {
+  	border-color: #1565c0;
+}
+
+.modal-body {
+	width: 100%;
+	min-height: 400px;
+	max-height: 500px;
+	overflow: auto;
+	border-radius: 5px;
+	padding: 10px 40px 10px 40px;
+	box-sizing: border-box;
+	background-color: white;
+}
