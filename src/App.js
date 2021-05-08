@@ -10,7 +10,7 @@ const App = () => {
                 <ToolBar />
                 <main className="page-main">
                     <ReactRouterDOM.HashRouter>
-                        <Route path="/" exact component={SumaryPage} />
+                        <Route path="/" exact component={HomePage} />
                         <Route path="/Dashboard" exact component={DashboardPage} />
                         <Route path="/Inventary" exact component={InventaryPage} />
                         <Route path="/Bills" exact component={BillsPage} />
@@ -22,6 +22,7 @@ const App = () => {
         </div>
     );
 }
+const HomePage = () => <h1>Home</h1>
 const DashboardPage = () => <h1>Dashboard</h1>
 const InventaryPage = () => <h1>Inventary</h1>
 const BillsPage = () => <h1>Bills</h1>
