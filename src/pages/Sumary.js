@@ -1,11 +1,13 @@
-const Link = ReactRouterDOM.Link;
-const Route = ReactRouterDOM.Route;
+class SumaryPage extends React.Component {
+    constructor() {
+        super();
+    }
 
-const Sumary = () => {
-    return (
-        <Modal>
-            <Input />
-            <ListItem></ListItem>
-        </Modal>
-    );
+    render() {
+        return (
+            <main className="main sumary">
+
+            </main>
+        );
+    }
 }

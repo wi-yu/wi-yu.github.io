@@ -6,16 +6,26 @@ const App = () => {
     return (
         <div>
             <MenuBar />
-            <ReactRouterDOM.HashRouter>
-                <Route path="/" exact component={Sumary} />
-                <Route path="/Dashboard" exact component={Dashboard} />
-                <Route path="/Inventary" exact component={Inventary} />
-                <Route path="/Bills" exact component={Bills} />
-                <Route path="/Custumers" exact component={Custumers} />
-                <Route path="/Cash-Register" exact component={CashRegister} />
-            </ReactRouterDOM.HashRouter>
+            <div className="page-content">
+                <ToolBar />
+                <main className="page-main">
+                    <ReactRouterDOM.HashRouter>
+                        <Route path="/" exact component={SumaryPage} />
+                        <Route path="/Dashboard" exact component={DashboardPage} />
+                        <Route path="/Inventary" exact component={InventaryPage} />
+                        <Route path="/Bills" exact component={BillsPage} />
+                        <Route path="/Custumers" exact component={CustumersPage} />
+                        <Route path="/Cash-Register" exact component={CashRegisterPage} />
+                    </ReactRouterDOM.HashRouter>
+                </main>
+            </div>
         </div>
     );
 }
+const DashboardPage = () => <h1>Dashboard</h1>
+const InventaryPage = () => <h1>Inventary</h1>
+const BillsPage = () => <h1>Bills</h1>
+const CustumersPage = () => <h1>Custumers</h1>
+const CashRegisterPage = () => <h1>Cash Register</h1>
 
 ReactDOM.render(<App />, document.querySelector('#root'));

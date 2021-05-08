@@ -1,13 +1,7 @@
 .modal {
-	/* Tamaño por defecto*/
-	width: 400px;
 	/* Tamños relativos */
+	min-width: 300px;
 	max-width: 500px;
-	/* Centar */
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 	/* Styles */
 	border-radius: 5px;
 	border: 2px solid #1e88e5;
@@ -17,10 +11,34 @@
 	box-shadow: 1px 7px 13px -2px #000000;
 }
 
+.modal-float {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 .modal-head {
 	color: #0d47a1;
 	padding: 5px;
 	height: 20px;
+}
+
+.modal-button {
+	cursor: pointer;	
+	padding: 20px;
+	margin: 10px;
+	border-radius: 10px;
+}
+
+.pink {
+	border: 2px solid #d35171;
+	background-color: #f7819e;
+}
+
+.green {
+	border: 2px solid #27ac8f;
+	background-color: #4ce2c2;
 }
 
 .modal-head button {

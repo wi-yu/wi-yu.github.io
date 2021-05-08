@@ -33,31 +33,38 @@ ListItem.defaultProps = {
 class Modal extends React.Component {
 	static defaultProps = {
 		title: "Modal Title",
+		float: false,
+		color: "pink",
 		children: <div>Add children here!</div>
 	}
 
 	constructor(props) {
 		super(props)
 		this.state = {
-			show: true
+			show: false
 		}
 	}
 
-	openCloseModal() {
-		this.setState(prevState => (
-			{ show: !prevState.show }))
+	openModal() {
+		this.setState(
+			{ show: true }
+		)
 	}
+
 	closeModal() {
-		this.setState({ show: false })
+		this.setState(
+			{ show: false }
+		);
 	}
 
 	render() {
 		return (
 			<div>
-				{this.state.show && <div className="modal">
+				<button className={"modal-button" + " " + this.props.color} onClick={() => this.openModal()}>{this.props.title}</button>
+				{this.state.show && <div className={"modal" + " " + (this.props.float ? "modal-float" : null)}>
 					<div className="modal-head">
 						<span>{this.props.title}</span>
-						<button id='button' onClick={() => this.openCloseModal()}>x</button>
+						<button id='button' onClick={() => this.closeModal()}>x</button>
 					</div>
 					<div className="modal-body">
 						{this.props.children}

@@ -1,20 +1,29 @@
-const Link = ReactRouterDOM.Link;
-const Route = ReactRouterDOM.Route;
-
 class MenuBar extends React.Component {
-    constructor() {
-        super();
+    static defaultProps = {
+        numOrders: 0
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            show: true
+        }
+    }
+
+    openClose() {
+        this.setState(prevState => (
+            { show: !prevState.show }))
     }
 
     render() {
         return (
             <nav className="nav">
                 <div className="nav-head">
+                    <a onClick={() => this.openClose()}>&#9776;</a>
                     <span>Wi-Yu</span>
-                    <button onClick={ }>3</button>
                 </div>
 
-                <div className="nav-body">
+                {this.state.show && <div className="nav-body">
                     <ReactRouterDOM.HashRouter>
                         <Link to="/">Home</Link>
                         <Link to="/Dashboard">Dashboard</Link>
@@ -24,18 +33,12 @@ class MenuBar extends React.Component {
                         <Link to="/Cash-Register">Caja</Link>
 
                     </ReactRouterDOM.HashRouter>
-                </div>
+                </div>}
 
-                <div className="nav-footer">
-                    Ayuda
-                </div>
-            </nav>
+                {this.state.show && <div className="nav-footer">
+                    <a href="">Ayuda</a>
+                </div>}
+            </nav >
         );
     }
 }
-
-const Dashboard = () => <h1>Dashboard</h1>
-const Inventary = () => <h1>Inventary</h1>
-const Bills = () => <h1>Bills</h1>
-const Custumers = () => <h1>Custumers</h1>
-const CashRegister = () => <h1>Cash Register</h1>

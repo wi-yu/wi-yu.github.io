@@ -1,34 +1,49 @@
-body {
-    padding: 0;
-    margin: 0;
+.nav {
+    position: sticky;
 }
-  
+
 .nav, .nav a {
     color: white;
-    background-color: #424242;
     text-decoration: none;
 }
   
 .nav a:hover {
     background-color: #616161;
 }
-
-.nav > *, .nav > *>*{
-    display: inline-block;
-}
   
 .nav a, .nav span {
     padding: 15px;
 }
 
-.nav button {
-    cursor: pointer;
-	border-radius: 50%;
-	border: 2px solid #ac0600;
-	background-color: #eb0c0c;
+.nav-head {
+    background-color: #424242;
+}  
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .nav-body > *, .nav-footer > *{
+        display: block;
+    }
+
+    .nav-head {
+        padding: 15px;
+    }
+
+    .nav-body, .nav-footer {
+        background-color: #424242d8;
+    }
 }
 
-.nav-footer {
-    float: right;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .nav-footer {
+        float: right;
+    }
+
+    .nav > *, .nav > *>*{
+        display: inline-block;
+    }
+
+    .nav, .nav a {
+        background-color: #424242;
+    }
 }
-  
