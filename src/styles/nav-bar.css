@@ -1,4 +1,6 @@
 .nav {
+    top: 0;
+    left: 0;
     position: sticky;
 }
 
@@ -6,18 +8,29 @@
     color: white;
     text-decoration: none;
 }
-  
+
+.nav-head {
+    background-color: #424242;
+}
+
 .nav a:hover {
     background-color: #616161;
 }
   
-.nav a, .nav span {
+.nav-head > *, .nav-body > *, .nav-footer > * {
     padding: 15px;
 }
 
-.nav-head {
-    background-color: #424242;
-}  
+.nav-button {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-button.active {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+ }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .nav-body > *, .nav-footer > *{
@@ -38,12 +51,19 @@
     .nav-footer {
         float: right;
     }
-
-    .nav > *, .nav > *>*{
-        display: inline-block;
+    
+    .nav, .nav-head, .nav-body, .nav-footer {
+        box-sizing: border-box;
     }
-
-    .nav, .nav a {
+    
+    .nav {
+        height: 50px;
+    }
+    .nav-head, .nav-body, .nav-footer, .nav-head > *, .nav-body > *, .nav-footer > * {
+        display: inline-block;
+        line-height:20px;
+    }
+    .nav, .nav a, .nav span {
         background-color: #424242;
     }
 }

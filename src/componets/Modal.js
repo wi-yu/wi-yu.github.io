@@ -61,7 +61,7 @@ class Modal extends React.Component {
 		return (
 			<div>
 				<button className={"modal-button" + " " + this.props.color} onClick={() => this.openModal()}>{this.props.title}</button>
-				{this.state.show && <div className={"modal" + " " + (this.props.float ? "modal-float" : null)}>
+				{this.state.show && <div className={"modal fade-in" + " " + (this.props.float ? "modal-float" : null)}>
 					<div className="modal-head">
 						<span>{this.props.title}</span>
 						<button id='button' onClick={() => this.closeModal()}>x</button>

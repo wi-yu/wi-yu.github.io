@@ -19,7 +19,7 @@ class MenuBar extends React.Component {
         return (
             <nav className="nav">
                 <div className="nav-head">
-                    <a onClick={() => this.openClose()}>&#9776;</a>
+                    <a className={"nav-button" + " " + (this.state.show ? "active" : null)} onClick={() => this.openClose()}><span>&#9776;</span></a>
                     <span>Wi-Yu</span>
                 </div>
 

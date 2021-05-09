@@ -11,6 +11,23 @@
 	box-shadow: 1px 7px 13px -2px #000000;
 }
 
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .modal-float {
 	position: absolute;
 	top: 50%;
@@ -27,7 +44,8 @@
 .modal-button {
 	cursor: pointer;	
 	padding: 20px;
-	margin: 10px;
+	margin: 10px auto 10px auto;
+	width: 100%;
 	border-radius: 10px;
 }
 
@@ -36,9 +54,17 @@
 	background-color: #f7819e;
 }
 
+.pink:active {
+	border: 2px solid #b13a58;
+}
+
 .green {
 	border: 2px solid #27ac8f;
 	background-color: #4ce2c2;
+}
+
+.green {
+	border: 2px solid #198069;
 }
 
 .modal-head button {

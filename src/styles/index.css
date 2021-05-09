@@ -1,6 +1,7 @@
 body {
     padding: 0;
     margin: 0;
+    width: 100vw;
 }
 
 
@@ -18,6 +19,11 @@ body {
     
     .page-aside {
         width: 20%;
+    }
+    
+    .page-aside > * {
+        width: 80%;
+        margin: auto;
     }
     .page-main {
         width: 80%;
