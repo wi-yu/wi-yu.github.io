@@ -34,7 +34,7 @@ class Modal extends React.Component {
 	static defaultProps = {
 		title: "Modal Title",
 		float: false,
-		color: "pink",
+		icon: "fas fa-atom",
 		children: <div>Add children here!</div>
 	}
 
@@ -60,11 +60,11 @@ class Modal extends React.Component {
 	render() {
 		return (
 			<div>
-				<button className={"modal-button" + " " + this.props.color} onClick={() => this.openModal()}>{this.props.title}</button>
+				<button className={"modal-button" + " " + this.props.icon} onClick={() => this.openModal()}></button>
 				{this.state.show && <div className={"modal fade-in" + " " + (this.props.float ? "modal-float" : null)}>
 					<div className="modal-head">
 						<span>{this.props.title}</span>
-						<button id='button' onClick={() => this.closeModal()}>x</button>
+						<button className="fas fa-times" id='button' onClick={() => this.closeModal()}></button>
 					</div>
 					<div className="modal-body">
 						{this.props.children}

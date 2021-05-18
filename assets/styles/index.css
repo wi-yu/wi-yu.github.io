@@ -1,0 +1,39 @@
+* {
+    font-family: 'Sarabun', sans-serif;
+    ;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    overflow: hidden;
+}
+
+
+.page-content>* {
+    margin: 10px;
+}
+
+
+.page-content {
+    display: flex;
+    margin: 30px;
+}
+
+.page-main {
+    width: 100%;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.page-aside {
+    float: right;
+    height: fit-content;
+}
+
+@media only screen and (max-width: 400px) {
+    .page-content {
+        margin: 10px;
+    }
+}

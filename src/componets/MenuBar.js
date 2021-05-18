@@ -31,12 +31,8 @@ class MenuBar extends React.Component {
                         <Link to="/Bills">Facturas</Link>
                         <Link to="/Custumers">Clientes</Link>
                         <Link to="/Cash-Register">Caja</Link>
-
+                        <Link to="/Help">Ayuda</Link>
                     </ReactRouterDOM.HashRouter>
-                </div>}
-
-                {this.state.show && <div className="nav-footer">
-                    <a href="">Ayuda</a>
                 </div>}
             </nav >
         );

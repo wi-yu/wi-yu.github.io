@@ -16,17 +16,21 @@ const App = () => {
                         <Route path="/Bills" exact component={BillsPage} />
                         <Route path="/Custumers" exact component={CustumersPage} />
                         <Route path="/Cash-Register" exact component={CashRegisterPage} />
+                        <Route path="/Help" exact component={HelpPage} />
                     </ReactRouterDOM.HashRouter>
                 </main>
             </div>
         </div>
     );
 }
+
 const HomePage = () => <h1>Home</h1>
 const DashboardPage = () => <h1>Dashboard</h1>
 const InventaryPage = () => <h1>Inventary</h1>
 const BillsPage = () => <h1>Bills</h1>
 const CustumersPage = () => <h1>Custumers</h1>
 const CashRegisterPage = () => <h1>Cash Register</h1>
+const HelpPage = () => <h1>Ayuda</h1>
+
 
 ReactDOM.render(<App />, document.querySelector('#root'));

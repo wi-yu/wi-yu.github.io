@@ -1,23 +1,31 @@
 .nav {
+    /* set the nav always on top */
     top: 0;
     left: 0;
     position: sticky;
+    overflow-x: overlay;
+    white-space: nowrap;
 }
 
-.nav, .nav a {
-    color: white;
+.nav a {
+    /* remove default links style */
+    color: inherit;
     text-decoration: none;
-}
-
-.nav-head {
-    background-color: #424242;
 }
 
 .nav a:hover {
     background-color: #616161;
 }
-  
-.nav-head > *, .nav-body > *, .nav-footer > * {
+
+.nav,
+.nav-head,
+.nav-body {
+    color: white;
+    background-color: #424242;
+}
+
+.nav-head>*,
+.nav-body>* {
     padding: 15px;
 }
 
@@ -30,19 +38,18 @@
     transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
- }
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .nav-body > *, .nav-footer > *{
+
+    .nav-body>*,
+    .nav-footer>* {
         display: block;
     }
 
     .nav-head {
         padding: 15px;
-    }
-
-    .nav-body, .nav-footer {
-        background-color: #424242d8;
     }
 }
 
@@ -51,19 +58,25 @@
     .nav-footer {
         float: right;
     }
-    
-    .nav, .nav-head, .nav-body, .nav-footer {
+
+    .nav,
+    .nav-head,
+    .nav-body,
+    .nav-footer {
         box-sizing: border-box;
     }
-    
+
     .nav {
         height: 50px;
     }
-    .nav-head, .nav-body, .nav-footer, .nav-head > *, .nav-body > *, .nav-footer > * {
+
+    .nav-head,
+    .nav-body,
+    .nav-footer,
+    .nav-head>*,
+    .nav-body>*,
+    .nav-footer>* {
         display: inline-block;
-        line-height:20px;
-    }
-    .nav, .nav a, .nav span {
-        background-color: #424242;
+        line-height: 20px;
     }
 }

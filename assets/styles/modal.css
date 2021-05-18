@@ -4,8 +4,8 @@
 	max-width: 500px;
 	/* Styles */
 	border-radius: 5px;
-	border: 2px solid #1e88e5;
-	background-color: #90caf9;
+	border: 2px solid rgb(34, 98, 194);
+	background-color: rgb(102, 163, 255);
 	/* Sombras */
 	-webkit-box-shadow: 1px 7px 13px -2px #000000;
 	box-shadow: 1px 7px 13px -2px #000000;
@@ -16,13 +16,14 @@
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
-	animation-duration: 0.5s;
+	animation-duration: 0.2s;
 }
 
 @keyframes fadeInOpacity {
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}
@@ -36,46 +37,41 @@
 }
 
 .modal-head {
-	color: #0d47a1;
+	color: aliceblue;
 	padding: 5px;
 	height: 20px;
 }
 
 .modal-button {
-	cursor: pointer;	
-	padding: 20px;
+	color: azure;
+	cursor: pointer;
+	padding: 10px;
+	font-size: large;
 	margin: 10px auto 10px auto;
-	width: 100%;
-	border-radius: 10px;
+	border-radius: 50%;
+	color: #c70032;
+	background-color: #ff5c84;
+	border: 2px solid #dd1a4b;
 }
 
-.pink {
-	border: 2px solid #d35171;
-	background-color: #f7819e;
-}
-
-.pink:active {
-	border: 2px solid #b13a58;
-}
-
-.green {
-	border: 2px solid #27ac8f;
-	background-color: #4ce2c2;
-}
-
-.green {
-	border: 2px solid #198069;
+.modal-button:active {
+	color: #ffc7d5;
+	border: 2px solid #ffc7d5;
 }
 
 .modal-head button {
 	float: right;
 	cursor: pointer;
-	border-radius: 50%;
-	border: 2px solid #1e88e5;
-	background-color: #2196f3;
+	text-align: center;
+	border-radius: 50px;
+	color: #ffc7d5;
+	border: 2px solid rgb(34, 98, 194);
+	background-color: #ff4070;
 }
+
 .modal-head button:active {
-  	border-color: #1565c0;
+	background-color: #e41e4f;
+	border-color: rgb(4, 55, 133);
 }
 
 .modal-body {
