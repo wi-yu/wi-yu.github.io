@@ -1,6 +1,16 @@
-class Cliente extends Persona{
-    constructor(elDomicilio,misVentas){
-        Domicilio.elDomicilio=elDomicilio
-        Venta.misVentas=new Array (misVentas)
+
+class Cliente extends Persona {
+
+    constructor() {
+        /** @type {Venta[]} */
+        this.misCompras = [];
+    }
+
+    /**
+     * 
+     * @param {Venta} compra 
+     */
+    nuevaCompra(compra) {
+        this.misCompras.push(compra);
     }
 }

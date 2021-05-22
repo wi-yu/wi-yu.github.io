@@ -1,6 +1,13 @@
-class Compra extends Transaciones{
-    constructor(IDPedido,losProveedores){
-        this.IDPedido=IDPedido
-        Proveedores.losProveedores=new Array(losProveedores)
+class Compra extends Transaccion {
+    /**
+     * 
+     * @param {Number} IDPedido 
+     */
+    constructor(IDPedido) {
+        this.IDPedido = IDPedido;
+
+        /** @type {Proveedor[]} */
+        this.losProveedores = [];
+
     }
 }

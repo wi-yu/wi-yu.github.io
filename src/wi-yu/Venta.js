@@ -1,7 +1,21 @@
-class Venta extends Transaciones{
-constructor(IDPedido,elCliente,losproductos){
-this.IDPedido=IDPedido
-Producto.losproductos=new Array (losproductos)
-Cliente.elCliente=elCliente
-}
+class Venta extends Transaciones {
+
+    /**
+     * 
+     * @param {Number} IDPedido 
+     * @param {Cliente} elCliente 
+     */
+    constructor(IDPedido, elCliente) {
+        this.IDPedido = IDPedido;
+        this.elCliente = elCliente;
+        this.productos = [];
+    }
+
+    /**
+     * 
+     * @param {Producto} producto 
+     */
+    añadirProducto(producto) {
+        this.productos.push(producto);
+    }
 }

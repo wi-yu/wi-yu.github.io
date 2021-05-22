@@ -1,7 +1,19 @@
-class Trabajador extends Persona{
-constructor(salario,fechaIngreso,misEntregas){
-    this.salario=salario
-    this.fechaIngreso=fechaIngreso
-    Domicilio.misEntregas=new Array(misEntregas)
-}
+
+class Trabajador extends Persona {
+
+    /**
+     * 
+     * @param {Number} salario 
+     * @param {Date} fechaIngreso 
+     */
+    constructor(salario, fechaIngreso) {
+        this.salario = salario;
+        this.fechaIngreso = fechaIngreso;
+
+        this.misEntregas = [];
+    }
+
+    nuevaEntrega(entrega) {
+        this.misEntregas.push(entrega);
+    }
 }
