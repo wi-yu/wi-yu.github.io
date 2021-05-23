@@ -1,4 +1,4 @@
-class wiyu {
+class Wiyu {
 
     constructor() {
         this.lasPersonas = [];

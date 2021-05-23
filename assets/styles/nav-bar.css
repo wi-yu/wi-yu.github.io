@@ -3,6 +3,7 @@
     top: 0;
     left: 0;
     position: sticky;
+    /* If the width of the screen is smoll, display and horizontal scroll-bar on the nav */
     overflow-x: overlay;
     white-space: nowrap;
 }
@@ -17,9 +18,11 @@
     background-color: #616161;
 }
 
+
 .nav,
 .nav-head,
 .nav-body {
+    /* set the default colo of the nav */
     color: white;
     background-color: #424242;
 }
@@ -35,6 +38,7 @@
 }
 
 .nav-button.active {
+    /* Animation of the button */
     transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -42,6 +46,10 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+
+    .nav-head>* {
+        display: inline-block;
+    }
 
     .nav-body>*,
     .nav-footer>* {
@@ -64,10 +72,6 @@
     .nav-body,
     .nav-footer {
         box-sizing: border-box;
-    }
-
-    .nav {
-        height: 50px;
     }
 
     .nav-head,

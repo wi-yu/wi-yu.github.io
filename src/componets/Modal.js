@@ -31,9 +31,9 @@ ListItem.defaultProps = {
 }
 
 class Modal extends React.Component {
+
 	static defaultProps = {
 		title: "Modal Title",
-		float: false,
 		icon: "fas fa-atom",
 		children: <div>Add children here!</div>
 	}
@@ -60,8 +60,8 @@ class Modal extends React.Component {
 	render() {
 		return (
 			<div>
-				<button className={"modal-button" + " " + this.props.icon} onClick={() => this.openModal()}></button>
-				{this.state.show && <div className={"modal fade-in" + " " + (this.props.float ? "modal-float" : null)}>
+				<button className={"modal-button" + " " + this.props.icon} onClick={() => this.openModal()}> </button>
+				{this.state.show && <div className="modal fade-in">
 					<div className="modal-head">
 						<span>{this.props.title}</span>
 						<button className="fas fa-times" id='button' onClick={() => this.closeModal()}></button>

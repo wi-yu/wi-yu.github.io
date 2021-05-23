@@ -1,7 +1,7 @@
 .modal {
 	/* Tamños relativos */
 	min-width: 300px;
-	max-width: 500px;
+	max-height: 500px;
 	/* Styles */
 	border-radius: 5px;
 	border: 2px solid rgb(34, 98, 194);
@@ -11,7 +11,15 @@
 	box-shadow: 1px 7px 13px -2px #000000;
 }
 
+.modal {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
 .fade-in {
+	/* when the modal is opened, display an animation */
 	opacity: 1;
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;
@@ -29,27 +37,14 @@
 	}
 }
 
-.modal-float {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.modal-head {
-	color: aliceblue;
-	padding: 5px;
-	height: 20px;
-}
-
 .modal-button {
+	/* open button of the modal */
+	display: inline-block;
 	color: azure;
 	cursor: pointer;
-	padding: 10px;
-	font-size: large;
-	margin: 10px auto 10px auto;
-	border-radius: 50%;
-	color: #c70032;
+	font-size: inherit;
+	padding: 5px;
+	border-radius: 5px;
 	background-color: #ff5c84;
 	border: 2px solid #dd1a4b;
 }
@@ -59,12 +54,21 @@
 	border: 2px solid #ffc7d5;
 }
 
+.modal-head {
+	/* The head of the modal: title, close button */
+	color: aliceblue;
+	padding: 5px;
+	height: 20px;
+}
+
 .modal-head button {
 	float: right;
 	cursor: pointer;
 	text-align: center;
 	border-radius: 50px;
 	color: #ffc7d5;
+	min-width: 10px;
+	min-height: 10px;
 	border: 2px solid rgb(34, 98, 194);
 	background-color: #ff4070;
 }
@@ -76,11 +80,18 @@
 
 .modal-body {
 	width: 100%;
-	min-height: 400px;
+	min-height: 470px;
 	max-height: 500px;
 	overflow: auto;
 	border-radius: 5px;
 	padding: 10px 40px 10px 40px;
 	box-sizing: border-box;
 	background-color: white;
+}
+
+/* Small devices: phones, tables */
+@media only screen and (max-width: 420px) {
+	.modal {
+		max-width: calc(100% - 10px);
+	}
 }

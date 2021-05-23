@@ -1,13 +1,16 @@
 const Link = ReactRouterDOM.Link;
 const Route = ReactRouterDOM.Route;
 const Router = ReactRouterDOM.Router;
+const useState = React.useState;
+
 
 const App = () => {
+
     return (
         <div>
             <MenuBar />
+
             <div className="page-content">
-                <ToolBar />
                 <main className="page-main">
                     <ReactRouterDOM.HashRouter>
                         <Route path="/" exact component={HomePage} />

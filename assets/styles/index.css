@@ -1,12 +1,18 @@
+@font-face {
+    font-family: Sarabun;
+    src: url("../fonts/Sarabun-ExtraLight.ttf");
+}
+
 * {
     font-family: 'Sarabun', sans-serif;
-    ;
 }
 
 body {
+    /* remove default style  */
     padding: 0;
     margin: 0;
-    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -17,21 +23,10 @@ body {
 
 
 .page-content {
-    display: flex;
     margin: 30px;
 }
 
-.page-main {
-    width: 100%;
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
-}
-
-.page-aside {
-    float: right;
-    height: fit-content;
-}
-
+/* smoll device  */
 @media only screen and (max-width: 400px) {
     .page-content {
         margin: 10px;
