@@ -20,13 +20,13 @@ class DetalleVenta {
 class Venta extends Transacion {
 
     /**
-     * 
+     * @param {String}      ID              ID de la venta (Hexadecimal) 
      * @param {Number}  monto 
      * @param {Date}    fecha 
      * @param {Cliente} elCliente 
      */
-    constructor(monto, fecha, elCliente) {
-        super("Venta", "NA", monto, fecha);
+    constructor(ID, monto, fecha, elCliente) {
+        super(ID, "Venta", "NA", monto, fecha);
 
         /** @type {Cliente} */
         this.elCliente = elCliente;
@@ -41,7 +41,7 @@ class Venta extends Transacion {
      * @param {Number} cantidad 
      */
     añadirProducto(producto, cantidad) {
-        detalleVenta = new this.DetalleVenta(producto, cantidad);
+        let detalleVenta = new DetalleVenta(this, producto, cantidad);
 
         producto.lasVentas.push(detalleVenta);
         this.losProductos.push(detalleVenta);

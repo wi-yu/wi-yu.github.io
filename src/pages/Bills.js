@@ -1,1 +1,3 @@
-const BillsPage = () => <h1>Bills</h1>
+const BillsPage = () => {
+    return <h1>Transacciones</h1>
+}

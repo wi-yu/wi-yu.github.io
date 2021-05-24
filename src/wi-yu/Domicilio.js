@@ -1,6 +1,6 @@
 
 /**
- * @enum {EstadoVenta}
+ * @enum {String}
  */
 const EstadoVenta = {
     completado: "Completado",
@@ -30,7 +30,12 @@ class Domicilio extends Venta {
         this.fechaEntraga = null;
     }
 
-    entregarDomicilio(fechaEntrega) {
+    entregar(fechaEntrega) {
         this.fechaEntraga = fechaEntrega;
+        this.estadoVenta = EstadoVenta.completado;
+    }
+
+    cancelar() {
+        this.estadoVenta = EstadoVenta.cancelado;
     }
 }

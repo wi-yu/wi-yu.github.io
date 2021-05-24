@@ -10,11 +10,22 @@ const pedido = new Domicilio(1222, null, cliente, null, null, null);
 
 const lasPersonas = [];
 const losProductos = [];
-const lasTransaciones = [];
 const losPedidos = [];
+const lasTransaciones = [];
 
-for (let i = 1; i <= 10; i++) {
-    losPedidos.push(new Domicilio(1222, null, cliente, null, null, null));
+// Craer productos 
+for (let index = 0; index <= 10; index++) {
+    let producto = new Producto("Producto" + index, 100 * index, index, null)
+    losProductos.push(producto)
 }
 
-ReactDOM.render(<App losPedidos={losPedidos} lasPersonas={lasPersonas} losProductos={losProductos} lasTransaciones={lasTransaciones} />, document.querySelector('#root'));
+// Crear Domicilios
+for (let index = 0; index <= 10; index++) {
+    let domicilio = new Domicilio(index, index * 100, null, cliente, EstadoVenta.pendiente, "", null);
+
+    domicilio.añadirProducto(losProductos[index], index)
+    lasTransaciones.push(domicilio);
+}
+
+
+ReactDOM.render(<App lasPersonas={lasPersonas} losProductos={losProductos} lasTransaciones={lasTransaciones} />, document.querySelector('#root'));
