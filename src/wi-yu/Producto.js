@@ -14,8 +14,9 @@ class Producto {
         this.IDProducto = IDProducto;
         this.proveedor = proveedor;
 
-        /** @type {Venta[]}*/
+        /** @type {DetalleVenta[]}*/
         this.lasVentas = [];
+
         /** @type {Number} */
         this.cantidad = 0;
     }

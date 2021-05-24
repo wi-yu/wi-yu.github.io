@@ -3,24 +3,34 @@
  * @enum {EstadoVenta}
  */
 const EstadoVenta = {
-    completado = "Completado",
-    cancelado = "Cancelado",
-    pendiente = "Pendiente"
+    completado: "Completado",
+    cancelado: "Cancelado",
+    pendiente: "Pendiente"
 }
 
 class Domicilio extends Venta {
 
     /**
-     * 
-     * @param {EstadoVenta} estadoVenta 
-     * @param {String} direcion 
-     * @param {Trabajador} elRepartidor 
-     * @param {Cliente} elCliente 
+     * @param {String}      ID              ID de la venta (Hexadecimal) 
+     * @param {Number}      monto           Total de la venta (Por defecto puede ser 0)
+     * @param {Date}        fecha           Fecha en la que se realiza la venta
+     * @param {Cliente}     elCliente       El cliente que realiza la venta
+     * @param {EstadoVenta} estadoVenta     El estado del domicilio
+     * @param {Number}      direcion        La dirección de entrega
+     * @param {Trabajador}  elRepartidor    La persona que hara la entrega
      */
-    constructor(estadoVenta, direcion, elRepartidor, elCliente) {
+    constructor(ID, monto, fecha, elCliente, estadoVenta, direcion, elRepartidor) {
+        super(ID, monto, fecha, elCliente);
+
         this.estadoVenta = estadoVenta;
         this.direcion = direcion;
         this.elRepartidor = elRepartidor;
-        this.elCliente = elCliente;
+
+        /** @type {Date} */
+        this.fechaEntraga = null;
+    }
+
+    entregarDomicilio(fechaEntrega) {
+        this.fechaEntraga = fechaEntrega;
     }
 }

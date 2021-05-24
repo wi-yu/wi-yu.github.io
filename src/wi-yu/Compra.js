@@ -1,4 +1,4 @@
-class Compra extends Transaccion {
+class Compra extends Transacion {
     /**
      * 
      * @param {Number} IDPedido 
