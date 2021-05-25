@@ -43,6 +43,88 @@ class App extends React.Component {
 
     }
 
+    save() {
+        localStorage.clear();
+
+        let clientes = [];
+        let trabajadores = [];
+        let productos = [];
+        let ventas = [];
+        let transacciones = [];
+        let domicilios = [];
+
+        this.state.lasPersonas.forEach(persona => {
+            if (persona instanceof Cliente) {
+                clientes.push(
+                    {
+                        nombre: persona.nombre,
+                        apellido: persona.apellido,
+                        tipoDoc: persona.tipoDoc,
+                        numDocumento: persona.numDocumento,
+                        telefono: persona.numDocumento,
+                        correo: persona.correo,
+                        direccions: persona.direccions,
+                        comprar: persona.misCompras.length
+                    }
+                )
+            } else {
+                trabajadores.push(
+                    {
+                        nombre: persona.nombre,
+                        apellido: persona.apellido,
+                        tipoDoc: persona.tipoDoc,
+                        numDocumento: persona.numDocumento,
+                        telefono: persona.numDocumento,
+                        correo: persona.correo,
+                        direccions: persona.direccions,
+                        comprar: persona.salario
+                    }
+                )
+            }
+        });
+
+        this.state.lasTransacciones.forEach(transacción => {
+            if (transacción instanceof Domicilio) {
+                domicilios.push(
+                    {
+                        ID: transacción.id,
+                        monto: transacción.monto,
+                        fecha: transacción.fecha,
+                        elCliente: transacción.elCliente.numDocumento,
+                        estadoVenta: transacción.estadoVenta,
+                        direcion: transacción.direcion,
+                        elRepartidor: transacción.elRepartidor.numDocumento
+                    }
+                )
+            } else if (transacción instanceof Venta) {
+                ventas.push(
+                    {
+                        ID: transacción.id,
+                        monto: transacción.monto,
+                        fecha: transacción.fecha,
+                        elCliente: transacción.elCliente.numDocumento
+                    }
+                )
+            } else {
+                transacciones.push(
+                    {
+                        ID: transacción.id,
+                        asunto: transacción.asunto,
+                        descripcion: transacción.descripcion,
+                        monto: transacción.monto,
+                        fecha: transacción.fecha,
+                    }
+                )
+            }
+        });
+        localStorage.setItem("Clientes", JSON.stringify(clientes));
+        localStorage.setItem("Trabajadores", JSON.stringify(trabajadores));
+        localStorage.setItem("Transacciones", JSON.stringify(transacciones));
+        localStorage.setItem("Ventas", JSON.stringify(ventas));
+        localStorage.setItem("Productos", JSON.stringify(domicilios));
+
+    }
+
     /**
      * Remueve un elemento de la lista que esta ene el estado
      * 
@@ -64,6 +146,7 @@ class App extends React.Component {
             <div>
                 <MenuBar>
 
+                    <button onClick={this.save()}>Guardar</button>
                     <Modal title="Pedidos Pendientes" icon="fas fa-tasks" float>
                         <PedidosPendientes actualizarEstado={(key, value) => this.actualizarEstado(key, value)} lasTransacciones={this.state.lasTransacciones}></PedidosPendientes>
                     </Modal>
@@ -75,6 +158,7 @@ class App extends React.Component {
                     <Modal title="Nuevo Pedido" icon="fas fa-cart-plus" float>
                         <NuevoPedido actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} lasTransacciones={this.state.lasTransacciones} lasPersonas={this.state.lasPersonas}></NuevoPedido>
                     </Modal>
+
 
                 </MenuBar>
 
@@ -89,6 +173,7 @@ class App extends React.Component {
                         </ReactRouterDOM.HashRouter>
                     </main>
                 </div>
+
 
             </div>
         );

@@ -44,7 +44,7 @@ class PedidosPendientes extends React.Component {
     render() {
         return <div>
             {this.state.lasTransacciones.map((Transacción, index) => {
-                console.log(Transacción.estadoVenta)
+
                 return (
                     Transacción instanceof Domicilio && Transacción.estadoVenta == EstadoVenta.pendiente) &&
                     <div key={"pedido" + index} className="pedidio">
