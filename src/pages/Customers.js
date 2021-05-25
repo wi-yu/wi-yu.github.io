@@ -6,6 +6,19 @@ const CustumersPage = (props) => {
                 <Modal title="Nuevo Cliente" icon="fas fa-cash-register" float></Modal><h1>Clientes </h1>
             </div>
 
+            <LosClientes removeElement={props.removeElement} lasPersonas={props.lasPersonas} />
+            <LosTrabajadores removeElement={props.removeElement} lasPersonas={props.lasPersonas} />
+        </div >
+    );
+}
+
+CustumersPage.defaultProps = {
+    lasPersonas: []
+}
+
+const LosClientes = (props) => {
+    return (
+        <div>
             <div className="overflow">
                 <table >
                     <thead><tr>
@@ -47,6 +60,13 @@ const CustumersPage = (props) => {
                     </tbody>
                 </table>
             </div>
+        </div>
+    );
+}
+
+const LosTrabajadores = (props) => {
+    return (
+        <div>
             <h1>Trabajadores</h1>
             <div className="overflow">
                 <table>
@@ -89,10 +109,6 @@ const CustumersPage = (props) => {
                     </tbody>
                 </table>
             </div>
-        </div >
-    );
-}
-
-CustumersPage.defaultProps = {
-    lasPersonas: []
+        </div>
+    )
 }
