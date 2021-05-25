@@ -65,11 +65,7 @@ class App extends React.Component {
                 <MenuBar>
 
                     <Modal title="Pedidos Pendientes" icon="fas fa-tasks" float>
-                        {this.state.lasTransacciones.map((Transacción, index) => {
-                            return (
-                                Transacción instanceof Domicilio && Transacción.estadoVenta == EstadoVenta.pendiente) &&
-                                <Pedido key={index} pedido={Transacción} autoDestruccion={() => this.removeElement("lasTransacciones", index)} />
-                        })}
+                        <PedidosPendientes actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} lasTransacciones={this.state.lasTransacciones}></PedidosPendientes>
                     </Modal>
 
                     <Modal title="Caja" icon="fas fa-cash-register" float>
@@ -77,7 +73,9 @@ class App extends React.Component {
                     </Modal>
 
                     <Modal title="Nuevo Pedido" icon="fas fa-cart-plus" float>
+                        <NuevoPedido actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} lasTransacciones={this.state.lasTransacciones} lasPersonas={this.state.lasPersonas}></NuevoPedido>
                     </Modal>
+
                 </MenuBar>
 
                 <div className="page-content">

@@ -15,7 +15,7 @@ class CajaRegistradora extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ID: props.lasTransacciones.length + 1,
+            ID: props.lasTransacciones[props.lasTransacciones.length - 1].ID + 1,
             asunto: '',
             descripcion: '',
             monto: 0,
@@ -43,7 +43,7 @@ class CajaRegistradora extends React.Component {
         this.props.actualizarEstado(this.state.lasTransacciones);
         this.setState(
             {
-                ID: this.props.lasTransacciones.length + 1,
+                ID: this.state.ID + 1,
                 asunto: '',
                 descripcion: '',
                 monto: 0,
