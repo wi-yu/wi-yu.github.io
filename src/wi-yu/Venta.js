@@ -17,7 +17,7 @@ class DetalleVenta {
     }
 }
 
-class Venta extends Transacion {
+class Venta extends Transacción {
 
     /**
      * @param {String}      ID              ID de la venta (Hexadecimal) 

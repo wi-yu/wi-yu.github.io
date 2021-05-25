@@ -7,39 +7,19 @@ class App extends React.Component {
     static defaultProps = {
         losProductos: [],
         lasPersonas: [],
-        lasTransaciones: []
+        lasTransacciones: []
     }
 
     constructor(props) {
         super(props);
 
-        this.losProductos = props.losProductos;
-        this.lasPersonas = props.lasPersonas;
-        this.lasTransaciones = props.lasTransaciones;
-
         this.state = {
-            /** @type {Domicilio[]} */
-            pedidosPendientes: this.getPedidosPendientes()
-        }
-    }
-
-    /**
-     * Dada una lista transacciones, busca los domiciolios que no se han entregado
-     * 
-     * @returns {Domicilio[]}
-     */
-    getPedidosPendientes() {
-        let array = [];
-
-        for (let index = 0; index < this.lasTransaciones.length; index++) {
-            let transacion = this.lasTransaciones[index];
-
-            if (transacion instanceof Domicilio && transacion.estadoVenta == EstadoVenta.pendiente) {
-                array.push(transacion);
-            }
+            /** @type {Transacción[]} */
+            lasTransacciones: props.lasTransacciones,
+            lasPersonas: props.lasPersonas,
+            losProductos: props.losProductos
         }
 
-        return array;
     }
 
     /**
@@ -51,7 +31,6 @@ class App extends React.Component {
     removeElement(key, index) {
         const lista = this.state[key];
         lista.splice(index, 1);
-
         this.setState({ key: lista });
     }
 
@@ -59,14 +38,12 @@ class App extends React.Component {
         return (
             <div>
                 <MenuBar>
+                    {/* if (Transacción instanceof Domicilio && Transacción.estadoVenta == EstadoVenta.pendiente) */}
                     <Modal title="Pedidos Pendientes" icon="fas fa-tasks" float>
-                        {this.state.pedidosPendientes.map((pedido, index) => {
-                            return <Pedido
-                                key={index}
-                                pedido={pedido}
-                                autoDestruccion={() => this.removeElement("pedidosPendientes", index)} />
+                        {this.state.lasTransacciones.map((Transacción, index) => {
+                            return (Transacción instanceof Domicilio && Transacción.estadoVenta == EstadoVenta.pendiente) && <Pedido key={index} pedido={Transacción}
+                                autoDestruccion={() => this.removeElement("lasTransacciones", index)} />
                         })}
-
                     </Modal>
 
                     <Modal title="Caja" icon="fas fa-cash-register" float>
@@ -80,10 +57,9 @@ class App extends React.Component {
                     <main className="page-main">
                         <ReactRouterDOM.HashRouter>
                             <Route path="/" exact component={HomePage} />
-                            <Route path="/Dashboard" exact component={DashboardPage} />
-                            <Route path="/Inventary" exact component={InventaryPage} />
-                            <Route path="/Bills" exact component={BillsPage} />
-                            <Route path="/Custumers" exact component={CustumersPage} />
+                            <Route path="/Inventary" exact render={() => <InventaryPage losProductos={this.state.losProductos} />} />
+                            <Route className="page-main" path="/Transacciones" render={() => <BillsPage removeElement={(index) => this.removeElement("lasTransacciones", index)} lasTransacciones={this.state.lasTransacciones} />} />
+                            <Route path="/Clientes-y-Trabajadores" render={() => <CustumersPage removeElement={(index) => this.removeElement("lasPersonas", index)} lasPersonas={this.state.lasPersonas} />} />
                             <Route path="/Help" exact component={HelpPage} />
                         </ReactRouterDOM.HashRouter>
                     </main>

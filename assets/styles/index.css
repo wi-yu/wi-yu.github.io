@@ -13,17 +13,16 @@ body {
     margin: 0;
     max-width: 100vw;
     min-height: 100vh;
-    overflow: hidden;
+
 }
-
-
-.page-content>* {
-    margin: 10px;
-}
-
 
 .page-content {
     margin: 30px;
+}
+
+.page-main {
+    width: 100%;
+    overflow: overlay;
 }
 
 .pedidio {

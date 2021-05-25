@@ -8,12 +8,12 @@ const TipoPago = {
     TD: "Tarjeta debito",
 }
 
-class Transacion {
+class Transacción {
 
     /**
      * 
      * @param {String}      ID              ID de la venta (Hexadecimal) 
-     * @param {String}      asunto          Porque se hizo esta transacción
+     * @param {String}      asunto          Porque se hizo esta Transacción
      * @param {String}      descripcion     Descripción mas detalla de la trasacción
      * @param {Number}      monto           Dinero ingresado o retirado
      * @param {Date}        fecha           Fecha en la que se hizo 

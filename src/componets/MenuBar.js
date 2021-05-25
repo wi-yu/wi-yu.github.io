@@ -30,10 +30,9 @@ class MenuBar extends React.Component {
                 {this.state.show && <div className="nav-body">
                     <ReactRouterDOM.HashRouter>
                         <Link to="/">Home</Link>
-                        <Link to="/Dashboard">Dashboard</Link>
                         <Link to="/Inventary">Inventario</Link>
-                        <Link to="/Bills">Facturas</Link>
-                        <Link to="/Custumers">Clientes</Link>
+                        <Link to="/Transacciones">Transacciones</Link>
+                        <Link to="/Clientes-y-Trabajadores">Clientes y Trabajadores</Link>
                         <Link to="/Help">Ayuda</Link>
                     </ReactRouterDOM.HashRouter>
                 </div>}
