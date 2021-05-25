@@ -65,7 +65,7 @@ class App extends React.Component {
                 <MenuBar>
 
                     <Modal title="Pedidos Pendientes" icon="fas fa-tasks" float>
-                        <PedidosPendientes actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} lasTransacciones={this.state.lasTransacciones}></PedidosPendientes>
+                        <PedidosPendientes actualizarEstado={(key, value) => this.actualizarEstado(key, value)} lasTransacciones={this.state.lasTransacciones}></PedidosPendientes>
                     </Modal>
 
                     <Modal title="Caja" icon="fas fa-cash-register" float>
@@ -83,8 +83,8 @@ class App extends React.Component {
                         <ReactRouterDOM.HashRouter>
                             <Route path="/" exact component={HomePage} />
                             <Route path="/Inventary" exact render={() => <InventaryPage losProductos={this.state.losProductos} />} />
-                            <Route className="page-main" path="/Transacciones" render={() => <BillsPage removeElement={(index) => this.removeElement("lasTransacciones", index)} lasTransacciones={this.state.lasTransacciones} />} />
-                            <Route path="/Clientes-y-Trabajadores" render={() => <CustumersPage removeElement={(index) => this.removeElement("lasPersonas", index)} lasPersonas={this.state.lasPersonas} />} />
+                            <Route className="page-main" path="/Transacciones" render={() => <BillsPage actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} removeElement={(index) => this.removeElement("lasTransacciones", index)} lasTransacciones={this.state.lasTransacciones} />} />
+                            <Route path="/Clientes-y-Trabajadores" render={() => <CustumersPage actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} removeElement={(index) => this.removeElement("lasPersonas", index)} lasPersonas={this.state.lasPersonas} />} />
                             <Route path="/Help" exact component={HelpPage} />
                         </ReactRouterDOM.HashRouter>
                     </main>

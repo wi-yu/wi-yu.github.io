@@ -6,8 +6,8 @@ class Trabajador extends Persona {
      * @param {Number} salario 
      * @param {Date} fechaIngreso 
      */
-    constructor(nombre, apellido, tipoDoc, numDocumento, telefonos, correos, direccions, salario, fechaIngreso) {
-        super(nombre, apellido, tipoDoc, numDocumento, telefonos, correos, direccions);
+    constructor(nombre, apellido, tipoDoc, numDocumento, telefono, correos, direccions, salario, fechaIngreso) {
+        super(nombre, apellido, tipoDoc, numDocumento, telefono, correos, direccions);
         this.salario = salario;
         this.fechaIngreso = fechaIngreso;
 

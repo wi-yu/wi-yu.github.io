@@ -20,14 +20,22 @@ class NuevoPedido extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.ID = (lista) => {
+            if (lista.length > 0) {
+                return lista[lista.length - 1].ID + 1
+            } else {
+                return lista.length + 1
+            }
+        }
         this.state = {
-            ID: props.lasTransacciones[props.lasTransacciones.length - 1].ID + 1,
+            ID: this.ID(props.lasTransacciones),
             monto: 0,
             fecha: '',
             cliente: new Cliente("Anonimo", "Anonimo", null, null, null, null, null),
             estadoVenta: EstadoVenta.pendiente,
             direccion: '',
-            repartidor: new Trabajador("Anonimo", "Anonimo", null, null, null, null, null)
+            repartidor: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -46,33 +54,38 @@ class NuevoPedido extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state.estadoVenta)
 
-        let domicilio = new Domicilio(this.state.ID, this.state.monto, this.state.fecha, this.state.elCliente, this.state.estadoVenta, this.state.direcion, this.state.elRepartidor);
+
+        let domicilio = new Domicilio(this.state.ID, this.state.monto, this.state.fecha, this.props.lasPersonas[this.state.cliente], this.state.estadoVenta, this.state.direcion, this.props.lasPersonas[this.state.repartidor]);
+        if (this.state.elCliente) elCliente.nuevaCompra(domicilio);
+
         this.props.lasTransacciones.push(domicilio);
-        this.props.actualizarEstado(this.state.lasTransacciones);
+        this.props.actualizarEstado("lasTransacciones", this.props.lasTransacciones);
+        this.props.actualizarEstado("lasPersonas", this.props.lasPersonas);
+
         this.setState(
             {
                 ID: this.state.ID + 1,
                 monto: 0,
                 fecha: '',
-                cliente: new Cliente("Anonimo", "Anonimo", null, null, null, null, null, null),
+                cliente: '',
                 estadoVenta: EstadoVenta.pendiente,
                 direccion: '',
-                repartidor: new Trabajador("Anonimo", "Anonimo", null, null, null, null, null)
+                repartidor: ''
             }
         )
 
     }
-
     render() {
+
         return (
             <form className="modal-form">
+
                 <label> Cliente
                     <select name="cliente" value={this.state.cliente} onChange={this.handleChange}>
-                        <option value={new Cliente("Anonimo", "Anonimo", null, null, null, null, null)}>Anonimo</option>
+                        <option key={"PersonaPorDefecto"} value={new Cliente("Anonimo", "Anonimo", null, null, null, null, null)}>Anonimo</option>
                         {this.props.lasPersonas.map((persona, index) => {
-                            if (persona instanceof Cliente) return <option key={index} value={persona}>{persona.nombre}</option>
+                            return (persona instanceof Cliente) && <option key={"persona" + index} value={index}>{persona.nombre}</option>
                         })}
                     </select>
                 </label>
@@ -92,7 +105,7 @@ class NuevoPedido extends React.Component {
                     <select name="repartidor" value={this.state.repartidor} onChange={this.handleChange}>
                         <option value={new Trabajador("Anonimo", "Anonimo", null, null, null, null, null)}>Anonimo</option>
                         {this.props.lasPersonas.map((persona, index) => {
-                            if (persona instanceof Trabajador) return <option key={index} value={persona}>{persona.nombre}</option>
+                            return (persona instanceof Trabajador) && <option key={"trabajador" + index} value={index}>{persona.nombre}</option>
                         })}
                     </select>
                 </label>

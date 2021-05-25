@@ -14,8 +14,18 @@ class CajaRegistradora extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.ID = (lista) => {
+            if (lista.length > 0) {
+                return lista[lista.length - 1].ID + 1
+            } else {
+                return lista.length + 1
+            }
+        }
+
+
         this.state = {
-            ID: props.lasTransacciones[props.lasTransacciones.length - 1].ID + 1,
+            ID: this.ID(props.lasTransacciones),
             asunto: '',
             descripcion: '',
             monto: 0,
@@ -38,7 +48,9 @@ class CajaRegistradora extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+
         let transaccion = new Transacción(this.state.ID, this.state.asunto, this.state.descripcion, parseFloat(this.state.monto), new Date(this.state.fecha));
+
         this.props.lasTransacciones.push(transaccion);
         this.props.actualizarEstado(this.state.lasTransacciones);
         this.setState(

@@ -1,7 +1,12 @@
 const BillsPage = (props) => {
     return (
         <div>
-            <h1>Transacciones</h1>
+            <div className="header-modal-h1">
+                <Modal title="Caja" icon="fas fa-cash-register" float>
+                    <CajaRegistradora actualizarEstado={props.actualizarEstado} lasTransacciones={props.lasTransacciones} />
+                </Modal>
+                <h1>Transacciones</h1>
+            </div>
             <table>
 
                 <thead><tr>
