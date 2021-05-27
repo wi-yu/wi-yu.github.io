@@ -7,6 +7,15 @@ const TipoDoc = {
     CE: "Cedula Extranjería"
 }
 
+
+/**
+ * @enum {TipoDoc}
+ */
+const TipoPersona = {
+    cliente: "Cliente",
+    trabajador: "Trabajador"
+}
+
 class Persona {
 
     /**
@@ -15,9 +24,9 @@ class Persona {
      * @param {String}      apellido        Apellidos de la persona.
      * @param {TipoDoc}     tipoDoc         Tipo de documento de la persona.
      * @param {Number}      numDocumento    Numero de documento de la persona.
-     * @param {Number}    telefono       Telefono de la persona.
-     * @param {String}    correos         Correos electronico de la persona.
-     * @param {String}    direccioes      Dereccioes de la persona.
+     * @param {Number}      telefono       Telefono de la persona.
+     * @param {String}      correos         Correos electronico de la persona.
+     * @param {String}      direccioes      Dereccioes de la persona.
      */
     constructor(nombre, apellido, tipoDoc, numDocumento, telefono, correos, direcciones) {
         this.nombre = nombre

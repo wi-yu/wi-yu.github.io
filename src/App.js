@@ -40,7 +40,6 @@ class App extends React.Component {
             /** @type {Producto[]} Lista de personas (Cliente, trabajadores) */
             losProductos: props.losProductos
         }
-
     }
 
     save() {
@@ -53,7 +52,8 @@ class App extends React.Component {
         let transacciones = [];
         let domicilios = [];
 
-        this.state.lasPersonas.forEach(persona => {
+        this.state.lasPersonas.map((persona) => {
+
             if (persona instanceof Cliente) {
                 clientes.push(
                     {
@@ -83,11 +83,11 @@ class App extends React.Component {
             }
         });
 
-        this.state.lasTransacciones.forEach(transacción => {
+        this.state.lasTransacciones.map((transacción) => {
             if (transacción instanceof Domicilio) {
                 domicilios.push(
                     {
-                        ID: transacción.id,
+                        ID: transacción.ID,
                         monto: transacción.monto,
                         fecha: transacción.fecha,
                         elCliente: transacción.elCliente.numDocumento,
@@ -99,7 +99,7 @@ class App extends React.Component {
             } else if (transacción instanceof Venta) {
                 ventas.push(
                     {
-                        ID: transacción.id,
+                        ID: transacción.ID,
                         monto: transacción.monto,
                         fecha: transacción.fecha,
                         elCliente: transacción.elCliente.numDocumento
@@ -108,7 +108,7 @@ class App extends React.Component {
             } else {
                 transacciones.push(
                     {
-                        ID: transacción.id,
+                        ID: transacción.ID,
                         asunto: transacción.asunto,
                         descripcion: transacción.descripcion,
                         monto: transacción.monto,
@@ -117,19 +117,19 @@ class App extends React.Component {
                 )
             }
         });
+
         localStorage.setItem("Clientes", JSON.stringify(clientes));
         localStorage.setItem("Trabajadores", JSON.stringify(trabajadores));
         localStorage.setItem("Transacciones", JSON.stringify(transacciones));
         localStorage.setItem("Ventas", JSON.stringify(ventas));
         localStorage.setItem("Productos", JSON.stringify(domicilios));
-
     }
 
     /**
      * Remueve un elemento de la lista que esta ene el estado
      * 
-     * @param {String} key Clave de la lista
-     * @param {number} index Posición del elemento
+     * @param {String} key      Clave de la lista
+     * @param {Number} index    Posición del elemento
      */
     removeElement(key, index) {
         const lista = this.state[key];
@@ -137,6 +137,12 @@ class App extends React.Component {
         this.setState({ key: lista });
     }
 
+    /**
+     * Sobre escribe un elemento del estado de la pagina
+     * 
+     * @param {String} key      Clave de la lista
+     * @param {Number} value    Nuevo valor de la lista
+     */
     actualizarEstado(key, value) {
         this.setState({ key: value });
     }
@@ -145,8 +151,8 @@ class App extends React.Component {
         return (
             <div>
                 <MenuBar>
-
                     <button onClick={this.save()}>Guardar</button>
+
                     <Modal title="Pedidos Pendientes" icon="fas fa-tasks" float>
                         <PedidosPendientes actualizarEstado={(key, value) => this.actualizarEstado(key, value)} lasTransacciones={this.state.lasTransacciones}></PedidosPendientes>
                     </Modal>
@@ -158,8 +164,6 @@ class App extends React.Component {
                     <Modal title="Nuevo Pedido" icon="fas fa-cart-plus" float>
                         <NuevoPedido actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} lasTransacciones={this.state.lasTransacciones} lasPersonas={this.state.lasPersonas}></NuevoPedido>
                     </Modal>
-
-
                 </MenuBar>
 
                 <div className="page-content">
@@ -169,11 +173,9 @@ class App extends React.Component {
                             <Route path="/Inventary" exact render={() => <InventaryPage losProductos={this.state.losProductos} />} />
                             <Route className="page-main" path="/Transacciones" render={() => <BillsPage actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} removeElement={(index) => this.removeElement("lasTransacciones", index)} lasTransacciones={this.state.lasTransacciones} />} />
                             <Route path="/Clientes-y-Trabajadores" render={() => <CustumersPage actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} removeElement={(index) => this.removeElement("lasPersonas", index)} lasPersonas={this.state.lasPersonas} />} />
-                            <Route path="/Help" exact component={HelpPage} />
                         </ReactRouterDOM.HashRouter>
                     </main>
                 </div>
-
 
             </div>
         );

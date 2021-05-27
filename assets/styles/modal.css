@@ -2,6 +2,8 @@
 	/* Tamños relativos */
 	min-width: 300px;
 	max-height: 500px;
+	max-width: 500px;
+	box-sizing: border-box;
 	/* Styles */
 	border-radius: 5px;
 	border: 2px solid rgb(34, 98, 194);
@@ -81,6 +83,8 @@
 .modal-body {
 	color: black;
 	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
 	min-height: 470px;
 	max-height: 470px;
 	overflow: auto;

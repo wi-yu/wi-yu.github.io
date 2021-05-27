@@ -33,7 +33,6 @@ class MenuBar extends React.Component {
                         <Link to="/Inventary">Inventario</Link>
                         <Link to="/Transacciones">Transacciones</Link>
                         <Link to="/Clientes-y-Trabajadores">Clientes y Trabajadores</Link>
-                        <Link to="/Help">Ayuda</Link>
                     </ReactRouterDOM.HashRouter>
                 </div>}
             </nav >

@@ -4,7 +4,7 @@ const CustumersPage = (props) => {
         <div>
             <div className="header-modal-h1">
                 <Modal title="Nuevo Cliente" icon="fas fa-plus" float>
-                    <NuevoCliente actualizarEstado={(value) => props.actualizarEstado("lasPersonas", value)} lasPersonas={props.lasPersonas} />
+                    <NuevaPersona actualizarEstado={(value) => props.actualizarEstado("lasPersonas", value)} lasPersonas={props.lasPersonas} />
                 </Modal>
                 <h1>Clientes </h1>
             </div>
@@ -13,7 +13,7 @@ const CustumersPage = (props) => {
 
             <div className="header-modal-h1">
                 <Modal title="Nuevo Trabajador" icon="fas fa-plus" float>
-                    <NuevoTrabajador actualizarEstado={(value) => props.actualizarEstado("lasPersonas", value)} lasPersonas={props.lasPersonas} />
+                    <NuevaPersona tipo={TipoPersona.trabajador} actualizarEstado={(value) => props.actualizarEstado("lasPersonas", value)} lasPersonas={props.lasPersonas} />
                 </Modal>
                 <h1>Trabajadores </h1>
             </div>
@@ -37,7 +37,7 @@ const LosClientes = (props) => {
                         <th>Tipo Doc</th>
                         <th>Doc</th>
                         <th>Telefono</th>
-                        <th>Correos</th>
+                        <th>Correo</th>
                         <th>Compras</th>
                     </tr></thead>
 
@@ -85,7 +85,7 @@ const LosTrabajadores = (props) => {
                         <th>Tipo Doc</th>
                         <th>Doc</th>
                         <th>Telefono</th>
-                        <th>Correos</th>
+                        <th>Correo</th>
                         <th>Salario</th>
                     </tr></thead>
 
