@@ -4,15 +4,12 @@ class Producto {
      * 
      * @param {String}        nombre 
      * @param {Number}        precio 
-     * @param {Number}        ID
-     * @param {Inventario}    elInventario 
-     * @param {Proveedor[]}   proveedor 
+     * @param {Number}        ID 
      */
-    constructor(nombre, precio, ID, proveedor) {
+    constructor(ID, nombre, precio) {
         this.nombre = nombre;
         this.precio = precio;
         this.ID = ID;
-        this.proveedor = proveedor;
 
         /** @type {DetalleVenta[]}*/
         this.lasVentas = [];

@@ -5,6 +5,8 @@ class NuevoPedido extends React.Component {
         lasTransacciones: [],
         /** @type {Persona[]} */
         lasPersonas: [],
+        /** @type {Persona[]} */
+        lasPersonas: [],
         /** Actualiza la los datos en la pagina principal */
         actualizarEstado: () => console.log("Defina 'actualizarEstado'")
     }
@@ -76,7 +78,7 @@ class NuevoPedido extends React.Component {
             formIsValid = false;
         }
 
-        if (this.props.lasPersonas[Number(this.state.cliente)] == undefined) {
+        if (this.props.lasPersonas[Number(this.state.cliente)] == null) {
             resultado.push("Cliente no valido.");
             formIsValid = false;
         }

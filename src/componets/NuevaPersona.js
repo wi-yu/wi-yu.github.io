@@ -18,7 +18,8 @@ class NuevaPersona extends React.Component {
             correos: '',
             direccions: '',
             resultado: [],
-            salario: 0
+            salario: 0,
+            fechaIngreso: (new Date()).toISOString().substr(0, 10)
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -79,7 +80,7 @@ class NuevaPersona extends React.Component {
             if (this.props.tipo == TipoPersona.cliente) {
                 persona = new Cliente(this.state.nombre, this.state.apellido, this.state.tipoDoc, this.state.numDocumento, this.state.telefono, this.state.correos, this.state.direccions);
             } else {
-                persona = new Trabajador(this.state.nombre, this.state.apellido, this.state.tipoDoc, this.state.numDocumento, this.state.telefono, this.state.correos, this.state.direccions, this.state.salario);
+                persona = new Trabajador(this.state.nombre, this.state.apellido, this.state.tipoDoc, this.state.numDocumento, this.state.telefono, this.state.correos, this.state.direccions, this.state.salario, new Date(this.state.fecha));
             }
 
             this.props.lasPersonas.push(persona);
@@ -93,7 +94,8 @@ class NuevaPersona extends React.Component {
                 correos: '',
                 direccions: '',
                 resultado: [''],
-                salario: 0
+                salario: 0,
+                fechaIngreso: (new Date()).toISOString().substr(0, 10)
             }
             )
         }
@@ -105,8 +107,14 @@ class NuevaPersona extends React.Component {
         return (
             <form className="modal-form">
 
-                <label>Nombre<input name="nombre" type="text" value={this.state.nombre} onChange={this.handleChange} /></label>
-                <label>Apellido<input name="apellido" type="text" value={this.state.apellido} onChange={this.handleChange} /></label>
+                <label>Nombre
+                    <input name="nombre" type="text"
+                        value={this.state.nombre} onChange={this.handleChange} />
+                </label>
+
+                <label>Apellido<input name="apellido" type="text"
+                    value={this.state.apellido} onChange={this.handleChange} />
+                </label>
 
                 <label> Tipo Doc
                     <select name="tipoDoc" value={this.state.tipoDoc} onChange={this.handleChange}>
@@ -137,6 +145,11 @@ class NuevaPersona extends React.Component {
                     <input name="salario" type="number"
                         value={this.state.salario} onChange={this.handleChange} />
                 </label>}
+
+                <label>Fecha ingreso
+                    <input type="date" name="fecha"
+                        value={this.state.fechaIngreso} onChange={this.handleChange} />
+                </label>
 
                 <button type="submit" onClick={(event) => this.handleSubmit(event)}>Enviar</button>
 

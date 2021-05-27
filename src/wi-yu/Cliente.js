@@ -8,11 +8,11 @@ class Cliente extends Persona {
      * @param {TipoDoc} tipoDoc 
      * @param {Number}  numDocumento 
      * @param {Number}  telefono 
-     * @param {String}  correos 
+     * @param {String}  correo 
      * @param {String}  direccions 
      */
-    constructor(nombre, apellido, tipoDoc, numDocumento, telefono, correos, direccions) {
-        super(nombre, apellido, tipoDoc, numDocumento, telefono, correos, direccions);
+    constructor(nombre, apellido, tipoDoc, numDocumento, telefono, correo, direccions) {
+        super(nombre, apellido, tipoDoc, numDocumento, telefono, correo, direccions);
 
         /** @type {Venta[]} */
         this.misCompras = [];

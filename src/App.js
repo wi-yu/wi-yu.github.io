@@ -61,7 +61,7 @@ class App extends React.Component {
                         apellido: persona.apellido,
                         tipoDoc: persona.tipoDoc,
                         numDocumento: persona.numDocumento,
-                        telefono: persona.numDocumento,
+                        telefono: persona.telefono,
                         correo: persona.correo,
                         direccions: persona.direccions,
                         comprar: persona.misCompras.length
@@ -74,10 +74,11 @@ class App extends React.Component {
                         apellido: persona.apellido,
                         tipoDoc: persona.tipoDoc,
                         numDocumento: persona.numDocumento,
-                        telefono: persona.numDocumento,
+                        telefono: persona.telefono,
                         correo: persona.correo,
                         direccions: persona.direccions,
-                        comprar: persona.salario
+                        salario: persona.salario,
+                        fechaIngreso: persona.fechaIngreso
                     }
                 )
             }
@@ -118,11 +119,23 @@ class App extends React.Component {
             }
         });
 
+        this.state.losProductos.map((producto) => {
+            productos.push(
+                {
+                    ID: producto.ID,
+                    nombre: producto.nombre,
+                    precio: producto.precio,
+                    cantidad: producto.cantidad,
+                }
+            )
+        })
+
         localStorage.setItem("Clientes", JSON.stringify(clientes));
         localStorage.setItem("Trabajadores", JSON.stringify(trabajadores));
         localStorage.setItem("Transacciones", JSON.stringify(transacciones));
         localStorage.setItem("Ventas", JSON.stringify(ventas));
-        localStorage.setItem("Productos", JSON.stringify(domicilios));
+        localStorage.setItem("Domicilios", JSON.stringify(domicilios));
+        localStorage.setItem("Productos", JSON.stringify(productos));
     }
 
     /**
@@ -154,15 +167,23 @@ class App extends React.Component {
                     <button onClick={this.save()}>Guardar</button>
 
                     <Modal title="Pedidos Pendientes" icon="fas fa-tasks" float>
-                        <PedidosPendientes actualizarEstado={(key, value) => this.actualizarEstado(key, value)} lasTransacciones={this.state.lasTransacciones}></PedidosPendientes>
+                        <PedidosPendientes
+                            actualizarEstado={(key, value) => this.actualizarEstado(key, value)}
+                            lasTransacciones={this.state.lasTransacciones} />
                     </Modal>
 
                     <Modal title="Caja" icon="fas fa-cash-register" float>
-                        <CajaRegistradora actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} lasTransacciones={this.state.lasTransacciones} />
+                        <CajaRegistradora
+                            actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)}
+                            lasTransacciones={this.state.lasTransacciones} />
                     </Modal>
 
                     <Modal title="Nuevo Pedido" icon="fas fa-cart-plus" float>
-                        <NuevoPedido actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} lasTransacciones={this.state.lasTransacciones} lasPersonas={this.state.lasPersonas}></NuevoPedido>
+                        <NuevoPedido
+                            actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)}
+                            lasTransacciones={this.state.lasTransacciones}
+                            losProductos={this.state.losProductos}
+                            lasPersonas={this.state.lasPersonas} />
                     </Modal>
                 </MenuBar>
 
@@ -170,9 +191,21 @@ class App extends React.Component {
                     <main className="page-main">
                         <ReactRouterDOM.HashRouter>
                             <Route path="/" exact component={HomePage} />
-                            <Route path="/Inventary" exact render={() => <InventaryPage losProductos={this.state.losProductos} />} />
-                            <Route className="page-main" path="/Transacciones" render={() => <BillsPage actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} removeElement={(index) => this.removeElement("lasTransacciones", index)} lasTransacciones={this.state.lasTransacciones} />} />
-                            <Route path="/Clientes-y-Trabajadores" render={() => <CustumersPage actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)} removeElement={(index) => this.removeElement("lasPersonas", index)} lasPersonas={this.state.lasPersonas} />} />
+
+                            <Route path="/Inventary" render={() => <InventaryPage
+                                actualizarEstado={(key, value) => this.actualizarEstado(key, value)}
+                                losProductos={this.state.losProductos}
+                                removeElement={(index) => this.removeElement("losProductos", index)} />} />
+
+                            <Route path="/Transacciones" render={() => <BillsPage
+                                actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)}
+                                removeElement={(index) => this.removeElement("lasTransacciones", index)}
+                                lasTransacciones={this.state.lasTransacciones} />} />
+
+                            <Route path="/Clientes-y-Trabajadores" render={() => <PeoplePage
+                                actualizarEstado={(value) => this.actualizarEstado("lasTransacciones", value)}
+                                removeElement={(index) => this.removeElement("lasPersonas", index)}
+                                lasPersonas={this.state.lasPersonas} />} />
                         </ReactRouterDOM.HashRouter>
                     </main>
                 </div>

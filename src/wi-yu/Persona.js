@@ -13,7 +13,8 @@ const TipoDoc = {
  */
 const TipoPersona = {
     cliente: "Cliente",
-    trabajador: "Trabajador"
+    trabajador: "Trabajador",
+    proveedor: "Proveedor"
 }
 
 class Persona {
@@ -25,16 +26,16 @@ class Persona {
      * @param {TipoDoc}     tipoDoc         Tipo de documento de la persona.
      * @param {Number}      numDocumento    Numero de documento de la persona.
      * @param {Number}      telefono       Telefono de la persona.
-     * @param {String}      correos         Correos electronico de la persona.
+     * @param {String}      correo         Correo electronico de la persona.
      * @param {String}      direccioes      Dereccioes de la persona.
      */
-    constructor(nombre, apellido, tipoDoc, numDocumento, telefono, correos, direcciones) {
+    constructor(nombre, apellido, tipoDoc, numDocumento, telefono, correo, direcciones) {
         this.nombre = nombre
         this.apellido = apellido;
         this.tipoDoc = tipoDoc;
         this.numDocumento = numDocumento;
         this.telefono = telefono;
-        this.correos = correos;
+        this.correo = correo;
         this.direcciones = direcciones;
     }
 
