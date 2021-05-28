@@ -7,6 +7,14 @@
     font-family: 'Sarabun', sans-serif;
 }
 
+.dinero {
+    font-size: xx-large;
+}
+
+.block {
+    display: block;
+}
+
 body {
     /* remove default style  */
     padding: 0;

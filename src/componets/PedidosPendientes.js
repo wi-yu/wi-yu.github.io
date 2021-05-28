@@ -37,15 +37,23 @@ class PedidosPendientes extends React.Component {
      */
     removeLista(Transacción, acción, index) {
         let lista = this.state.lasTransacciones;
-        lista.splice(index, 1); // Eliminar este elemento
 
-        this.setState({ "lasTransacciones": lista });
+
         if (acción == "CANCELAR") {
             Transacción.cancelar();
 
             // Actualizar principal
+            lista.splice(index, 1); // Eliminar este elemento
+            this.setState({ "lasTransacciones": lista });
             this.props.actualizarEstado(this.state.lasTransacciones);
-        } else Transacción.entregar();
+        } else {
+            Transacción.entregar();
+            this.props.actualizarEstado(this.props.lasTransacciones);
+
+            lista.splice(index, 1); // Eliminar este elemento
+            this.setState({ "lasTransacciones": lista });
+        }
+
     }
 
     render() {

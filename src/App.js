@@ -190,7 +190,11 @@ class App extends React.Component {
                 <div className="page-content">
                     <main className="page-main">
                         <ReactRouterDOM.HashRouter>
-                            <Route path="/" exact component={HomePage} />
+                            <Route path="/" render={() => <HomePage
+                                lasPersonas={this.lasPersonas}
+                                losProductos={this.losProductos}
+                                actualizarEstado={(key, value) => this.actualizarEstado(key, value)}
+                                lasTransacciones={this.state.lasTransacciones} />} />
 
                             <Route path="/Inventary" render={() => <InventaryPage
                                 actualizarEstado={(key, value) => this.actualizarEstado(key, value)}
